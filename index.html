@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devuelto · Recupera lo que te deben como inquilino</title>
+<meta name="description" content="Fianzas que no te devuelven y meses de agencia que no tenías que pagar. Calcula gratis cuánto te deben y recibe tu reclamación lista para enviar.">
+<meta property="og:title" content="Devuelto · Recupera lo que te deben como inquilino">
+<meta property="og:description" content="Fianzas que no te devuelven y meses de agencia que no tenías que pagar. Calcula gratis cuánto te deben y recibe tu reclamación lista para enviar.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E1A2B">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+<nav class="wrap" aria-label="Principal">
+<a class="brand" href="#inicio" aria-label="Devuelto, inicio"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><g transform="translate(0 3)"><path d="M26.25 30.07 A31 31 0 1 0 50.00 19.00" fill="none" stroke="#0E1A2B" stroke-width="10" stroke-linecap="round"/><path d="M41.60 19.00 L55.60 8.00 L55.60 30.00 Z" fill="#0E1A2B" stroke="#0E1A2B" stroke-width="2" stroke-linejoin="round"/><circle cx="50" cy="50" r="10.5" fill="#187A4C"/></g></svg><span>devuelto<span class="dot">.</span></span></a>
+<div class="nav-links">
+<a href="#como-funciona">Cómo funciona</a>
+<a href="#precios">Precios</a>
+<a href="#preguntas">Preguntas</a>
+<a class="btn btn-dark" href="#calculadora">Calcular gratis</a>
+</div>
+</nav>
+</header>
+<main>
+<section id="inicio" class="wrap hero">
+<div class="hero-copy">
+<p class="eyebrow">Para inquilinos</p>
+<h1>Recupera el dinero que te deben como inquilino.</h1>
+<p class="lead">Fianzas que no te devuelven y meses de agencia que no tenías que pagar. Calcula gratis cuánto es y recibe tu reclamación lista para enviar.</p>
+<ul class="ticks">
+<li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="#187A4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Basado en la Ley de Arrendamientos Urbanos y en la Ley Orgánica 1/2025</span></li>
+<li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="#187A4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hasta 2.000 €, puedes reclamar sin abogado ni procurador</span></li>
+<li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="#187A4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pago único, sin suscripciones</span></li>
+</ul>
+</div>
+
+<div id="calculadora" class="calc">
+<h2>Calcula lo que te deben</h2>
+<div class="tabs" role="tablist" aria-label="Qué quieres reclamar">
+<button class="tab" role="tab" id="tab-fianza" aria-controls="panel-fianza" aria-selected="true" type="button">Fianza</button>
+<button class="tab" role="tab" id="tab-agencia" aria-controls="panel-agencia" aria-selected="false" type="button" tabindex="-1">Mes de agencia</button>
+</div>
+
+<div class="panel" id="panel-fianza" role="tabpanel" aria-labelledby="tab-fianza">
+<div class="field"><label for="fianza">Importe de la fianza (€)</label><input id="fianza" type="number" inputmode="decimal" min="0" step="0.01" value="900"></div>
+<div class="field"><label for="llaves">Fecha en que entregaste las llaves</label><input id="llaves" type="date" value="2026-06-01"></div>
+<div class="field"><label for="devuelto">Cantidad que ya te han devuelto (€)</label><input id="devuelto" type="number" inputmode="decimal" min="0" step="0.01" value="0"></div>
+<div class="results" aria-live="polite">
+<div class="row"><span>Fianza pendiente</span><span id="f-pend">900,00 €</span></div>
+<div class="row"><span>Días de retraso</span><span id="f-dias">0</span></div>
+<div class="row"><span>Intereses al 3,25 % anual</span><span id="f-int">0,00 €</span></div>
+<div class="total"><span>Total que te deben hoy</span><output id="f-total">900,00 €</output></div>
+<p class="note" id="f-nota"></p>
+</div>
+<a class="btn btn-green" id="cta-fianza" href="mailto:devuelto0@gmail.com?subject=Quiero%20preparar%20mi%20burofax%20de%20fianza">Preparar mi burofax · 19 €</a>
+<p class="small">Cálculo orientativo con el interés legal del dinero de 2026. Art. 36.4 LAU.</p>
+</div>
+
+<div class="panel" id="panel-agencia" role="tabpanel" aria-labelledby="tab-agencia" hidden>
+<div class="field"><label for="importe">Lo que pagaste a la inmobiliaria, IVA incluido (€)</label><input id="importe" type="number" inputmode="decimal" min="0" step="0.01" value="1210"></div>
+<div class="field"><label for="fechaPago">Fecha en que lo pagaste</label><input id="fechaPago" type="date" value="2025-09-01"></div>
+<div class="results" aria-live="polite">
+<div class="row"><span>Importe pagado</span><span id="h-imp">1210,00 €</span></div>
+<div class="row"><span>Días desde el pago</span><span id="h-dias">0</span></div>
+<div class="row"><span>Intereses al 3,25 % anual</span><span id="h-int">0,00 €</span></div>
+<div class="total"><span>Total a reclamar</span><output id="h-total">1210,00 €</output></div>
+<p class="note" id="h-nota"></p>
+</div>
+<a class="btn btn-green" id="cta-agencia" href="mailto:devuelto0@gmail.com?subject=Quiero%20reclamar%20mi%20mes%20de%20agencia">Preparar mi reclamación · 29 €</a>
+<p class="small">Solo vivienda habitual. Cálculo orientativo con el interés legal del dinero (3,25 % desde 2023). Art. 20.1 LAU.</p>
+</div>
+</div>
+</section>
+
+<div class="band" id="como-funciona">
+<section class="wrap section">
+<h2>Cómo funciona</h2>
+<div class="grid">
+<div class="step"><span class="num">01</span><h3>Calcula</h3><p>Elige fianza o mes de agencia, introduce el importe y la fecha, y ves al momento lo que te deben con intereses.</p></div>
+<div class="step"><span class="num">02</span><h3>Recibe tu reclamación</h3><p>Respondes unas preguntas sobre tu caso y recibes por email el escrito en PDF, con una propuesta de acuerdo y un plazo de 30 días.</p></div>
+<div class="step"><span class="num">03</span><h3>Envíala y espera respuesta</h3><p>La envías por Correos online con acuse de recibo y copia certificada. El día 33 te escribimos con el siguiente paso.</p></div>
+</div>
+</section>
+</div>
+
+<section class="wrap section">
+<div class="section-intro"><h2>La ley, en claro</h2><p>No son leyes nuevas. Lo que marca la diferencia es reclamar en el orden correcto.</p></div>
+<div class="grid">
+<div class="law"><h3>Art. 36.4 LAU</h3><p>Pasado un mes desde la entrega de llaves, la fianza no devuelta genera el interés legal a tu favor: un 3,25 % anual en 2026.</p></div>
+<div class="law"><h3>Art. 20.1 LAU</h3><p>Desde el 26 de mayo de 2023, en la vivienda habitual, los gastos de gestión inmobiliaria y de formalización del contrato los paga el casero.</p></div>
+<div class="law"><h3>Ley Orgánica 1/2025</h3><p>Desde el 3 de abril de 2025 hay que intentar negociar antes de demandar. Nuestros escritos están pensados para dejar constancia de ese intento.</p></div>
+<div class="law"><h3>Juicio verbal hasta 2.000 €</h3><p>Si no hay acuerdo, puedes reclamar en el juzgado sin abogado ni procurador.</p></div>
+</div>
+</section>
+
+<div class="band" id="precios">
+<section class="wrap section">
+<h2>Precios</h2>
+<div class="grid">
+<div class="price"><h3>Calculadora</h3><p class="amount">Gratis</p><p>Lo que te deben a fecha de hoy, intereses incluidos, por fianza o por mes de agencia.</p></div>
+<div class="price featured"><h3>Burofax de fianza</h3><p class="amount">19 €</p><ul><li>Documento personalizado con tus datos</li><li>Intereses calculados a la fecha</li><li>Guía para enviarlo por Correos online</li><li>Aviso de seguimiento el día 33</li></ul><a class="btn btn-green" id="cta-fianza-2" href="mailto:devuelto0@gmail.com?subject=Quiero%20preparar%20mi%20burofax%20de%20fianza">Preparar mi burofax</a></div>
+<div class="price featured"><h3>Reclamación del mes de agencia</h3><p class="amount">29 €</p><ul><li>Escrito a la inmobiliaria con copia al casero</li><li>Importe e intereses calculados</li><li>Guía de envío y aviso el día 33</li><li>Plantilla de queja ante Consumo</li></ul><a class="btn btn-green" id="cta-agencia-2" href="mailto:devuelto0@gmail.com?subject=Quiero%20reclamar%20mi%20mes%20de%20agencia">Preparar mi reclamación</a></div>
+<div class="price"><h3>Demanda sencilla</h3><p class="amount">39 €</p><ul><li>Demanda de juicio verbal rellenada</li><li>Lista de documentos que adjuntar</li><li>Guía para presentarla</li></ul><p class="note">Solo si pasan 30 días sin respuesta y la cantidad es de 2.000 € o menos.</p></div>
+</div>
+<p class="note">Precios finales. El envío por Correos se paga aparte, según su tarifa.</p>
+</section>
+</div>
+
+<section class="wrap faq" id="preguntas">
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Es legal reclamar intereses por la fianza?</summary><p>Sí. Lo establece el artículo 36.4 de la Ley de Arrendamientos Urbanos, en vigor desde 1994. El interés legal del dinero en 2026 es del 3,25 % anual.</p></details>
+<details><summary>¿Y si el casero dice que hay daños?</summary><p>Puede descontar daños reales, pero no el desgaste normal por el uso (art. 1561 del Código Civil). El burofax le pide que lo justifique con facturas o presupuestos. Si tienes fotos de la entrada y la salida, mucho mejor.</p></details>
+<details><summary>Firmé que pagaba yo la agencia. ¿Puedo reclamarlo?</summary><p>En la vivienda habitual, sí. Desde el 26 de mayo de 2023 esos gastos los paga el casero, y una cláusula que empeora tus derechos como inquilino es nula aunque esté firmada (art. 6 LAU).</p></details>
+<details><summary>En la factura pone «asesoramiento» o «estudio de solvencia». ¿También cuenta?</summary><p>Lo que importa es para quién era el servicio, no su nombre. Si lo contrató el casero, o tú no lo pediste con un contrato aparte, se puede reclamar.</p></details>
+<details><summary>¿Sois abogados?</summary><p>No. Devuelto prepara documentos a partir de los datos que nos das. Si tu caso supera los 2.000 € o se complica, te ponemos en contacto con un abogado colaborador.</p></details>
+<details><summary>¿Cuánto tarda?</summary><p>El escrito te llega por email unos minutos después del pago. La otra parte tiene 30 días naturales desde que lo recibe para responder.</p></details>
+<details><summary>¿Qué pasa si no responden?</summary><p>Pasados los 30 días queda constancia del intento de negociación y puedes reclamar en el juzgado. Si son 2.000 € o menos, no necesitas abogado ni procurador.</p></details>
+</section>
+
+<section class="cta">
+<div class="wrap">
+<div><p class="big">Lo que es tuyo, de vuelta.</p><p class="sub">Descubre en 30 segundos cuánto te deben.</p></div>
+<a class="btn btn-light" href="#calculadora">Calcular lo que me deben</a>
+</div>
+</section>
+</main>
+<footer class="wrap site-footer">
+<div class="top">
+<a class="brand" href="index.html" aria-label="Devuelto, inicio"><svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true"><g transform="translate(0 3)"><path d="M26.25 30.07 A31 31 0 1 0 50.00 19.00" fill="none" stroke="#0E1A2B" stroke-width="10" stroke-linecap="round"/><path d="M41.60 19.00 L55.60 8.00 L55.60 30.00 Z" fill="#0E1A2B" stroke="#0E1A2B" stroke-width="2" stroke-linejoin="round"/><circle cx="50" cy="50" r="10.5" fill="#187A4C"/></g></svg><span>devuelto<span class="dot">.</span></span></a>
+<div class="links"><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="condiciones.html">Condiciones</a></div>
+</div>
+<p>Devuelto prepara documentos con los datos que nos facilitas. No es un despacho de abogados ni presta asesoramiento jurídico personalizado.</p>
+<p>Contacto: <a href="mailto:devuelto0@gmail.com">devuelto0@gmail.com</a></p>
+</footer>
+<script>
+(function () {
+  var FORM_F = "mailto:devuelto0@gmail.com?subject=Quiero%20preparar%20mi%20burofax%20de%20fianza";
+  var FORM_H = "mailto:devuelto0@gmail.com?subject=Quiero%20reclamar%20mi%20mes%20de%20agencia";
+  function $(id) { return document.getElementById(id); }
+  function num(v) { var n = parseFloat(String(v || '').replace(',', '.')); return isFinite(n) ? n : 0; }
+  function eur(n) { return n.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'; }
+  function parse(t) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(t || ''); return m ? { y: +m[1], mo: +m[2] - 1, d: +m[3] } : null; }
+  function today() { var n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function fmt(ms) { var d = new Date(ms); return String(d.getUTCDate()).padStart(2, '0') + '/' + String(d.getUTCMonth() + 1).padStart(2, '0') + '/' + d.getUTCFullYear(); }
+  function withParams(base, q) { if (base.indexOf('mailto:') === 0) return base; return base + (base.indexOf('?') === -1 ? '?' : '&') + q; }
+
+  function calcFianza() {
+    var pend = Math.max(0, num($('fianza').value) - num($('devuelto').value));
+    var k = parse($('llaves').value), dias = 0, nota = '';
+    if (k) {
+      var last = new Date(Date.UTC(k.y, k.mo + 2, 0)).getUTCDate();
+      var lim = Date.UTC(k.y, k.mo + 1, Math.min(k.d, last));
+      dias = Math.round((today() - lim) / 86400000);
+      nota = dias > 0 ? 'El plazo para devolvértela venció el ' + fmt(lim) + '.' : 'Todavía está en plazo: el casero tiene hasta el ' + fmt(lim) + '.';
+    }
+    var late = !!k && dias > 0;
+    var inte = late ? Math.round(pend * 0.0325 * dias / 365 * 100) / 100 : 0;
+    $('f-pend').textContent = eur(pend);
+    $('f-dias').textContent = late ? String(dias) : '0';
+    $('f-int').textContent = eur(inte);
+    $('f-total').textContent = eur(pend + inte);
+    $('f-nota').textContent = nota;
+    var href = withParams(FORM_F, 'fianza=' + encodeURIComponent(pend) + '&llaves=' + encodeURIComponent($('llaves').value || ''));
+    $('cta-fianza').href = href; $('cta-fianza-2').href = href;
+  }
+
+  function calcAgencia() {
+    var imp = Math.max(0, num($('importe').value));
+    var p = parse($('fechaPago').value), dias = 0, antes = false;
+    if (p) {
+      var pago = Date.UTC(p.y, p.mo, p.d);
+      dias = Math.max(0, Math.round((today() - pago) / 86400000));
+      antes = pago < Date.UTC(2023, 4, 26);
+    }
+    var inte = Math.round(imp * 0.0325 * dias / 365 * 100) / 100;
+    $('h-imp').textContent = eur(imp);
+    $('h-dias').textContent = String(dias);
+    $('h-int').textContent = eur(inte);
+    $('h-total').textContent = eur(imp + inte);
+    $('h-nota').textContent = antes ? 'Si tu contrato es anterior al 26/05/2023, solo puedes reclamarlo si el casero era una empresa.' : '';
+    var href = withParams(FORM_H, 'importe=' + encodeURIComponent(imp) + '&fecha_pago=' + encodeURIComponent($('fechaPago').value || ''));
+    $('cta-agencia').href = href; $('cta-agencia-2').href = href;
+  }
+
+  ['fianza', 'llaves', 'devuelto'].forEach(function (id) { $(id).addEventListener('input', calcFianza); });
+  ['importe', 'fechaPago'].forEach(function (id) { $(id).addEventListener('input', calcAgencia); });
+
+  var tabs = [$('tab-fianza'), $('tab-agencia')];
+  function select(i) {
+    tabs.forEach(function (t, j) {
+      var on = i === j;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      $(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { var n = (i + 1) % 2; select(n); tabs[n].focus(); e.preventDefault(); }
+    });
+  });
+
+  calcFianza(); calcAgencia();
+})();
+</script>
+</body>
+</html>
