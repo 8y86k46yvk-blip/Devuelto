@@ -5,6 +5,7 @@ Uso: python3 publicar.py SEMANA.py
 """
 import json, os, shutil, sys
 import video
+from marca import plano
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(AQUI)
@@ -36,7 +37,8 @@ def main(semana):
                     "providers": [{"network": "instagram"}, {"network": "facebook"}, {"network": "tiktok"}],
                     "instagramData": {"type": "REEL", "showReelOnFeed": True},
                     "facebookData": {"type": "REEL"},
-                    "tiktokData": {**TIKTOK, "autoAddMusic": False}}
+                    "tiktokData": {**TIKTOK, "autoAddMusic": False,
+                                   "title": plano(p["escenas"][0]["texto"])[:90]}}
             plan.append({"id": p["id"], "red": "ig+fb+tt", "date": fecha + "+00:00", "info": info})
         else:
             n = len(p["slides"])

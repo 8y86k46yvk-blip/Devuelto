@@ -38,6 +38,7 @@ Las horas salen de las mejores franjas de TikTok en Metricool (picos a las 10, 1
 6. Commit y push a `main`. Espera a que GitHub Pages publique y comprueba que un archivo de
    `https://devuelto.app/redes/X/` responde.
 7. Programa cada entrada de `plan.json` con `createScheduledPost` (blogId, date, info en JSON).
+   TikTok exige `tiktokData.title` también en los vídeos (ya lo pone `publicar.py`).
 8. Añade los temas nuevos a `temas.md`.
 
 Dependencias: Python 3 con numpy, Playwright (Chromium), Pillow y ffmpeg; fuentes Lora e Inter.
