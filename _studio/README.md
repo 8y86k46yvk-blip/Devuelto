@@ -13,6 +13,9 @@ Genera y programa las publicaciones de Instagram, Facebook y TikTok de Devuelto
 | 13:00 | Carrusel educativo | Instagram y Facebook (4:5) + TikTok en modo foto (9:16) |
 | 18:00 | Vídeo vertical animado (Reel) | Instagram, Facebook y TikTok |
 
+Cada vídeo lleva además su historia de Instagram con el mismo vídeo, 10 minutos después
+(permiso de Adrian del 13/11/2026; `publicar.py` ya la mete en el plan).
+
 Las horas salen de las mejores franjas de TikTok en Metricool (picos a las 10, 12 y 18 h).
 
 ## Estilo

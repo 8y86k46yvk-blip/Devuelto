@@ -4,6 +4,7 @@ plan.json con las publicaciones listas para programar en Metricool (createSchedu
 Uso: python3 publicar.py SEMANA.py
 """
 import json, os, shutil, sys
+from datetime import datetime, timedelta
 import video
 from marca import plano
 
@@ -40,6 +41,12 @@ def main(semana):
                     "tiktokData": {**TIKTOK, "autoAddMusic": False,
                                    "title": plano(p["escenas"][0]["texto"])[:90]}}
             plan.append({"id": p["id"], "red": "ig+fb+tt", "date": fecha + "+00:00", "info": info})
+            # Historia de Instagram con el mismo vídeo, 10 minutos después del Reel (permiso de Adrian, 13/11/2026)
+            h = (datetime.fromisoformat(fecha) + timedelta(minutes=10)).isoformat(timespec="seconds")
+            plan.append({"id": p["id"] + "-historia", "red": "ig-story", "date": h + "+00:00",
+                         "info": {**COMUN, "publicationDate": {"dateTime": h, "timezone": TZ},
+                                  "media": [f"{BASE_URL}/{nombre}/{f}"], "providers": [{"network": "instagram"}],
+                                  "instagramData": {"type": "STORY", "isAiGenerated": False}}})
         else:
             n = len(p["slides"])
             ig, tt = [], []
